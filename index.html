@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>霍格沃茨魔法学校 · 哈利·波特主题站</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%230b1220"/><path d="M36 8 L18 36 h11 l-4 20 L45 26 H33 z" fill="%23c9a24b"/></svg>'>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ===== 设计令牌 ===== */
+:root{
+  --ink:#0a101f;
+  --ink-2:#101a2e;
+  --ink-3:#182440;
+  --line:rgba(201,162,75,.18);
+  --parchment:#f3e6c8;
+  --parchment-dim:#c9bda2;
+  --gold:#c9a24b;
+  --gold-2:#e8cf8e;
+  --gryffindor:#b3242a;
+  --gryffindor-2:#e8b04b;
+  --slytherin:#1f5c45;
+  --slytherin-2:#9fb3a6;
+  --ravenclaw:#24436e;
+  --ravenclaw-2:#c09a4e;
+  --hufflepuff:#b8860b;
+  --hufflepuff-2:#3d3d3d;
+  --font-display:"Cinzel","Noto Serif SC","Songti SC",serif;
+  --font-serif:"Noto Serif SC","Songti SC",serif;
+  --font-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--parchment);
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(201,162,75,.35);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ===== 顶部导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(18px,4vw,48px);
+  background:rgba(10,16,31,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-brand{
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--font-display);
+  font-weight:700;letter-spacing:3px;font-size:17px;color:var(--gold-2);
+}
+.nav-brand small{font-family:var(--font-serif);font-weight:700;font-size:14px;letter-spacing:6px;color:var(--parchment)}
+.nav-links{display:flex;gap:clamp(14px,2.5vw,34px);font-size:14px;letter-spacing:1px;color:var(--parchment-dim)}
+.nav-links a{position:relative;padding:4px 2px;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-links a:hover::after{width:100%}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;background:url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Pon9bfzeIo1WVaxUUnfcnnVmnyd') center 40%/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,31,.55) 0%,rgba(10,16,31,.42) 40%,rgba(10,16,31,.88) 82%,var(--ink) 100%)}
+.hero-inner{position:relative;z-index:2;padding:120px 20px 80px;max-width:860px}
+.hero-eyebrow{
+  font-family:var(--font-display);font-size:13px;letter-spacing:8px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:22px;opacity:.9;
+}
+.hero h1{
+  font-family:var(--font-serif);font-weight:900;
+  font-size:clamp(38px,7vw,72px);letter-spacing:clamp(6px,1.6vw,18px);
+  color:#fff;line-height:1.2;margin-bottom:18px;
+  text-shadow:0 4px 30px rgba(0,0,0,.5);
+}
+.hero-en{font-family:var(--font-display);font-size:clamp(13px,1.6vw,17px);letter-spacing:6px;color:var(--gold-2);margin-bottom:34px}
+.hero-desc{max-width:560px;margin:0 auto 40px;font-size:15px;color:var(--parchment-dim)}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:13px 34px;font-size:14px;letter-spacing:2px;
+  border:1px solid var(--gold);color:var(--gold-2);border-radius:2px;
+  transition:all .25s;cursor:pointer;background:transparent;font-family:var(--font-body);
+}
+.btn:hover{background:var(--gold);color:#141a2a}
+.btn-solid{background:var(--gold);color:#141a2a;border-color:var(--gold)}
+.btn-solid:hover{background:var(--gold-2);color:#10182a}
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-size:11px;letter-spacing:4px;color:var(--parchment-dim);text-transform:uppercase;animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%,100%{opacity:.35;transform:translate(-50%,0)}50%{opacity:1;transform:translate(-50%,8px)}}
+
+/* ===== 星空光点 ===== */
+.sparkles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.sparkles i{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold-2);opacity:.7;animation:twinkle 4s ease-in-out infinite}
+.sparkles i:nth-child(1){top:22%;left:12%;animation-delay:0s}
+.sparkles i:nth-child(2){top:34%;left:78%;animation-delay:.7s}
+.sparkles i:nth-child(3){top:15%;left:55%;animation-delay:1.4s;width:2px;height:2px}
+.sparkles i:nth-child(4){top:48%;left:88%;animation-delay:2s}
+.sparkles i:nth-child(5){top:60%;left:8%;animation-delay:2.6s;width:2px;height:2px}
+.sparkles i:nth-child(6){top:26%;left:33%;animation-delay:3.2s;width:2px;height:2px}
+.sparkles i:nth-child(7){top:70%;left:64%;animation-delay:1s}
+.sparkles i:nth-child(8){top:44%;left:44%;animation-delay:2.2s}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.95;transform:scale(1.25)}}
+
+/* ===== 通用区块 ===== */
+.section{padding:clamp(64px,8vw,110px) clamp(20px,5vw,64px)}
+.wrap{max-width:1180px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:clamp(36px,5vw,60px)}
+.sec-eyebrow{font-family:var(--font-display);font-size:12px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sec-title{font-family:var(--font-serif);font-weight:900;font-size:clamp(26px,3.6vw,40px);letter-spacing:4px;color:#fff}
+.sec-sub{max-width:560px;margin:14px auto 0;font-size:14px;color:var(--parchment-dim)}
+
+/* ===== 学院 ===== */
+.houses{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+.house-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.house-card{
+  position:relative;overflow:hidden;border:1px solid var(--line);
+  background:var(--ink-3);padding:38px 24px 30px;text-align:center;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+}
+.house-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
+.house-card[data-house="gryffindor"]::before{background:var(--gryffindor)}
+.house-card[data-house="slytherin"]::before{background:var(--slytherin)}
+.house-card[data-house="ravenclaw"]::before{background:var(--ravenclaw)}
+.house-card[data-house="hufflepuff"]::before{background:var(--hufflepuff)}
+.house-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.house-shield{
+  width:84px;height:100px;margin:0 auto 20px;
+  background:var(--ink);border:1px solid var(--gold);position:relative;
+  clip-path:polygon(50% 0,100% 12%,96% 70%,50% 100%,4% 70%,0 12%);
+  display:flex;align-items:center;justify-content:center;
+}
+.house-shield span{font-family:var(--font-display);font-weight:700;font-size:38px;line-height:1}
+.house-card[data-house="gryffindor"] .house-shield span{color:var(--gryffindor-2)}
+.house-card[data-house="slytherin"] .house-shield span{color:var(--slytherin-2)}
+.house-card[data-house="ravenclaw"] .house-shield span{color:var(--ravenclaw-2)}
+.house-card[data-house="hufflepuff"] .house-shield span{color:#d9a520}
+.house-name{font-family:var(--font-serif);font-weight:900;font-size:20px;letter-spacing:3px;color:#fff;margin-bottom:4px}
+.house-en{font-family:var(--font-display);font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.house-animal{font-size:13px;color:var(--gold-2);margin-bottom:10px;letter-spacing:1px}
+.house-desc{font-size:13px;color:var(--parchment-dim)}
+.house-founder{font-size:12px;color:var(--parchment-dim);opacity:.7;margin-top:14px}
+
+/* ===== 人物 ===== */
+.characters{background:var(--ink-2)}
+.filter-bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+.filter-btn{
+  padding:8px 22px;font-size:13px;letter-spacing:2px;border:1px solid var(--line);
+  color:var(--parchment-dim);background:transparent;border-radius:999px;cursor:pointer;transition:all .25s;font-family:var(--font-body);
+}
+.filter-btn:hover{color:var(--gold-2);border-color:var(--gold)}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#141a2a;font-weight:500}
+.char-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.char-card{
+  background:var(--ink-3);border:1px solid var(--line);overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .3s, box-shadow .3s;
+}
+.char-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.char-photo{position:relative;aspect-ratio:4/5;overflow:hidden}
+.char-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.char-card:hover .char-photo img{transform:scale(1.05)}
+.char-house-tag{
+  position:absolute;top:14px;left:14px;padding:4px 12px;font-size:11px;letter-spacing:2px;
+  color:#fff;border-radius:2px;font-family:var(--font-body);
+}
+.char-house-tag.gryffindor{background:var(--gryffindor)}
+.char-house-tag.slytherin{background:var(--slytherin)}
+.char-house-tag.ravenclaw{background:var(--ravenclaw)}
+.char-house-tag.hufflepuff{background:var(--hufflepuff)}
+.char-body{padding:18px 18px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.char-name{font-family:var(--font-serif);font-weight:900;font-size:19px;color:#fff;letter-spacing:2px}
+.char-en{font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.char-role{font-size:12.5px;color:var(--gold-2);letter-spacing:1px}
+.char-desc{font-size:13px;color:var(--parchment-dim);margin-top:4px;line-height:1.65}
+.char-rule{height:2px;width:34px;margin-top:auto;padding-top:8px;background:linear-gradient(90deg,var(--gold),transparent)}
+.empty-state{
+  display:none;grid-column:1/-1;text-align:center;padding:60px 20px;
+  border:1px dashed var(--line);color:var(--parchment-dim);font-size:14px;letter-spacing:2px;
+}
+.empty-state.show{display:block}
+
+/* ===== 名言 ===== */
+.quote{
+  background:linear-gradient(180deg,var(--ink-2),var(--ink));
+  text-align:center;
+}
+.quote-mark{font-family:var(--font-display);font-size:56px;color:var(--gold);line-height:0;display:block;margin-bottom:22px}
+.quote-text{
+  font-family:var(--font-serif);font-weight:700;font-size:clamp(19px,2.6vw,27px);line-height:1.9;
+  color:#fff;max-width:720px;margin:0 auto;letter-spacing:2px;
+}
+.quote-text em{font-style:normal;color:var(--gold-2)}
+.quote-from{margin-top:26px;font-size:13px;letter-spacing:3px;color:var(--parchment-dim)}
+.quote-from b{font-family:var(--font-display);font-weight:600;color:var(--gold);letter-spacing:2px}
+
+/* ===== 页脚 ===== */
+.footer{border-top:1px solid var(--line);padding:34px clamp(20px,4vw,48px);text-align:center;font-size:12.5px;color:var(--parchment-dim);letter-spacing:1px}
+.footer .brand{font-family:var(--font-display);letter-spacing:4px;color:var(--gold);margin-bottom:10px;font-size:14px}
+.footer p{margin-bottom:6px;opacity:.85}
+.footer .disclaimer{opacity:.55;font-size:11.5px;max-width:640px;margin:12px auto 0}
+
+/* ===== 响应式 ===== */
+@media (max-width:1080px){
+  .house-grid,.char-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:620px){
+  .nav{padding-top:8px;padding-bottom:8px}
+  .nav-links{font-size:12.5px;gap:6px}
+  .nav-links a{padding:12px 8px}
+  .nav-brand{padding:10px 0}
+  .nav-brand small{display:none}
+  .house-grid,.char-grid{grid-template-columns:1fr}
+  .char-photo{aspect-ratio:4/3.4}
+  .hero-cta{gap:10px}
+  .btn{padding:13px 22px;font-size:13.5px}
+  .filter-btn{padding:12px 20px;font-size:13.5px}
+  .sec-sub,.house-desc,.char-desc{font-size:14px}
+  .house-animal,.char-role{font-size:14px}
+  .house-founder{font-size:14px}
+  .house-en,.char-en{font-size:12.5px}
+  .hero-eyebrow,.sec-eyebrow{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<header class="nav">
+  <a class="nav-brand" href="#top">HOGWARTS <small>霍格沃茨</small></a>
+  <nav class="nav-links">
+    <a href="#houses">四大院系</a>
+    <a href="#characters">主要人物</a>
+    <a href="#quote">魔法箴言</a>
+  </nav>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Harry Potter · Fan Page</div>
+    <h1>霍格沃茨魔法学校</h1>
+    <div class="hero-en">Hogwarts School of Witchcraft and Wizardry</div>
+    <p class="hero-desc">一所在苏格兰高地上空点亮烛火的千年学府。在这里，猫头鹰送来入学信，分院帽决定你的命运，而勇气、智慧与友谊，永远是最强大的魔法。</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="#houses">探索四大院系</a>
+      <a class="btn" href="#characters">认识主要人物</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll Down</div>
+</section>
+
+<!-- ===== 四大院系 ===== -->
+<section class="section houses" id="houses">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">The Four Houses</div>
+      <h2 class="sec-title">四大魔法学院</h2>
+      <p class="sec-sub">入学当晚，分院帽将唱响你的命运。四座学院各有传承，也各有骄傲。</p>
+    </div>
+    <div class="house-grid">
+      <div class="house-card" data-house="gryffindor">
+        <div class="house-shield"><span>G</span></div>
+        <div class="house-name">格兰芬多</div>
+        <div class="house-en">Gryffindor</div>
+        <div class="house-animal">雄狮 · 勇气</div>
+        <p class="house-desc">有胆识、有气魄、骑士精神。危险时刻，格兰芬多总是第一个站出来。</p>
+        <div class="house-founder">创始人：戈德里克·格兰芬多</div>
+      </div>
+      <div class="house-card" data-house="slytherin">
+        <div class="house-shield"><span>S</span></div>
+        <div class="house-name">斯莱特林</div>
+        <div class="house-en">Slytherin</div>
+        <div class="house-animal">毒蛇 · 野心</div>
+        <p class="house-desc">精明、野心、不择手段地求成。斯莱特林为达目的，无所不用其极。</p>
+        <div class="house-founder">创始人：萨拉查·斯莱特林</div>
+      </div>
+      <div class="house-card" data-house="ravenclaw">
+        <div class="house-shield"><span>R</span></div>
+        <div class="house-name">拉文克劳</div>
+        <div class="house-en">Ravenclaw</div>
+        <div class="house-animal">雄鹰 · 智慧</div>
+        <p class="house-desc">聪明绝顶、博学多才。拉文克劳相信，智慧永远是最好的魔杖。</p>
+        <div class="house-founder">创始人：罗伊纳·拉文克劳</div>
+      </div>
+      <div class="house-card" data-house="hufflepuff">
+        <div class="house-shield"><span>H</span></div>
+        <div class="house-name">赫奇帕奇</div>
+        <div class="house-en">Hufflepuff</div>
+        <div class="house-animal">獾 · 忠诚</div>
+        <p class="house-desc">公正、忠诚、勤奋、包容。赫奇帕奇接纳所有被世界忽略的人。</p>
+        <div class="house-founder">创始人：赫尔加·赫奇帕奇</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 主要人物 ===== -->
+<section class="section characters" id="characters">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Main Characters</div>
+      <h2 class="sec-title">主要人物</h2>
+      <p class="sec-sub">从铁三角到黑魔王，这些名字共同写下了魔法世界的传奇。</p>
+    </div>
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-house="all">全部</button>
+      <button class="filter-btn" data-house="gryffindor">格兰芬多</button>
+      <button class="filter-btn" data-house="slytherin">斯莱特林</button>
+      <button class="filter-btn" data-house="ravenclaw">拉文克劳</button>
+      <button class="filter-btn" data-house="hufflepuff">赫奇帕奇</button>
+    </div>
+    <div class="char-grid" id="charGrid">
+
+      <article class="char-card" data-house="gryffindor">
+        <div class="char-photo"><span class="char-house-tag gryffindor">格兰芬多</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/FspQbDnX8o8tXfxYCTfcv25NnZf" alt="哈利·波特" style="object-position:center 18%"></div>
+        <div class="char-body">
+          <div class="char-name">哈利·波特</div>
+          <div class="char-en">Harry Potter</div>
+          <div class="char-role">大难不死的男孩 · 救世之星</div>
+          <p class="char-desc">额头的闪电伤疤与牡鹿守护神，见证他从储物间走向对抗黑魔王的宿命之路。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="gryffindor">
+        <div class="char-photo"><span class="char-house-tag gryffindor">格兰芬多</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Dqm5bnvEaoh89AxNi9jclCrOnqe" alt="赫敏·格兰杰" style="object-position:center 22%"></div>
+        <div class="char-body">
+          <div class="char-name">赫敏·格兰杰</div>
+          <div class="char-en">Hermione Granger</div>
+          <div class="char-role">万事通小姐 · 铁三角的智慧</div>
+          <p class="char-desc">麻瓜出身却比任何人都努力。图书馆里的每一页，都是她施法前的准备。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="gryffindor">
+        <div class="char-photo"><span class="char-house-tag gryffindor">格兰芬多</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Kv0HbOFrvoQRqTxVRYvc9OE0n4e" alt="罗恩·韦斯莱" style="object-position:center 14%"></div>
+        <div class="char-body">
+          <div class="char-name">罗恩·韦斯莱</div>
+          <div class="char-en">Ron Weasley</div>
+          <div class="char-role">忠诚的伙伴 · 巫师棋高手</div>
+          <p class="char-desc">红发、雀斑、破旧的二手魔杖。在巫师棋的棋盘上，他敢用自己做棋子。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="gryffindor">
+        <div class="char-photo"><span class="char-house-tag gryffindor">格兰芬多</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LPvFb8keYoU4XbxMnu7cmJe2njh" alt="阿不思·邓布利多" style="object-position:center 30%"></div>
+        <div class="char-body">
+          <div class="char-name">阿不思·邓布利多</div>
+          <div class="char-en">Albus Dumbledore</div>
+          <div class="char-role">霍格沃茨校长 · 当代最伟大的巫师</div>
+          <p class="char-desc">银须长袍，目光如炬。他以智慧和爱布下大局，也背负着无人知晓的过往。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="slytherin">
+        <div class="char-photo"><span class="char-house-tag slytherin">斯莱特林</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/Q1DnbFBJXoRL41xfN8lchpJkngf" alt="西弗勒斯·斯内普"></div>
+        <div class="char-body">
+          <div class="char-name">西弗勒斯·斯内普</div>
+          <div class="char-en">Severus Snape</div>
+          <div class="char-role">魔药学教授 · 双面间谍</div>
+          <p class="char-desc">黑袍翻涌，毒舌如刀。他守护一生的秘密，比任何魔咒都更动人。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="slytherin">
+        <div class="char-photo"><span class="char-house-tag slytherin">斯莱特林</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/KxF0b33kUojwHIxNJIdclGm1nIg" alt="德拉科·马尔福" style="object-position:center 28%"></div>
+        <div class="char-body">
+          <div class="char-name">德拉科·马尔福</div>
+          <div class="char-en">Draco Malfoy</div>
+          <div class="char-role">纯血少爷 · 斯莱特林找球手</div>
+          <p class="char-desc">铂金发色与骄傲神情之下，是一个被家族期望压得喘不过气的少年。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="ravenclaw">
+        <div class="char-photo"><span class="char-house-tag ravenclaw">拉文克劳</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/X462b7vCvoTul0xXYiFct6dwnlc" alt="卢娜·洛夫古德" style="object-position:center 30%"></div>
+        <div class="char-body">
+          <div class="char-name">卢娜·洛夫古德</div>
+          <div class="char-en">Luna Lovegood</div>
+          <div class="char-role">拉文克劳的月亮</div>
+          <p class="char-desc">别人笑她古怪，她笑别人看不见夜骐。直觉如月亮般清亮，温柔而坚定。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <article class="char-card" data-house="slytherin">
+        <div class="char-photo"><span class="char-house-tag slytherin">斯莱特林</span><img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/NwZebAVFtomTmjx5u9McBz4dnFp" alt="伏地魔" style="object-position:center 26%"></div>
+        <div class="char-body">
+          <div class="char-name">伏地魔</div>
+          <div class="char-en">Lord Voldemort</div>
+          <div class="char-role">黑魔王 · 史上最危险的黑巫师</div>
+          <p class="char-desc">原名汤姆·里德尔。他怕死，于是把灵魂切成七片，也把自己变成了怪物。</p>
+          <div class="char-rule"></div>
+        </div>
+      </article>
+
+      <div class="empty-state" id="emptyState">此学院的代表角色尚未收录，魔法部正在查证中，敬请期待。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 魔法箴言 ===== -->
+<section class="section quote" id="quote">
+  <div class="wrap">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">决定我们是谁的，不是我们的能力，<br>而是<em>我们的选择</em>。</p>
+    <div class="quote-from">—— <b>Albus Dumbledore</b> 阿不思·邓布利多</div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="brand">HOGWARTS · 霍格沃茨</div>
+  <p>猫头鹰即日抵达 · 霍格沃茨特快 9¾ 站台发车</p>
+  <p class="disclaimer">本站为哈利·波特爱好者非官方主题页面，人物与故事均出自 J.K. 罗琳的《哈利·波特》系列作品；页面图片来自公开影视资料，仅作学习交流使用。</p>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('filterBar');
+  var grid = document.getElementById('charGrid');
+  var empty = document.getElementById('emptyState');
+  if(!bar || !grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.char-card'));
+  bar.addEventListener('click', function(e){
+    var btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    var all = bar.querySelectorAll('.filter-btn');
+    for(var i=0;i<all.length;i++){ all[i].classList.remove('active'); }
+    btn.classList.add('active');
+    var house = btn.getAttribute('data-house');
+    var visible = 0;
+    for(var j=0;j<cards.length;j++){
+      var show = (house === 'all' || cards[j].getAttribute('data-house') === house);
+      cards[j].style.display = show ? '' : 'none';
+      if(show) visible++;
+    }
+    empty.classList.toggle('show', visible === 0);
+  });
+})();
+</script>
+</body>
+</html>
